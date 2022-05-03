@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using System.Text;
 
 namespace DotNetSolutions {
@@ -50,7 +52,7 @@ namespace DotNetSolutions {
 
         public static void MoveZeroes(int[] nums)
         {
-            var count = nums.Count();
+            var count = nums.Length;
             var posZero = count - 1;
             var countZeroes = 0;
             while (posZero >= 0)
@@ -81,7 +83,7 @@ namespace DotNetSolutions {
 
         public static void Rotate(int[] nums, int k)
         {
-            var count = nums.Count();
+            var count = nums.Length;
 
             if (k < 0) return;
 
@@ -112,7 +114,7 @@ namespace DotNetSolutions {
 
         public static int[] SortedSquares(int[] nums)
         {
-            var count = nums.Count();
+            var count = nums.Length;
             int[] result = new int[count];
 
             if (count == 1)

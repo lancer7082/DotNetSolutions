@@ -29,7 +29,7 @@
                 }
             }
 
-            return SearchPartial(nums, 0, nums.Count() - 1, target);
+            return SearchPartial(nums, 0, nums.Length - 1, target);
         }
 
         public static int FirstBadVersion(int n)
@@ -38,7 +38,7 @@
 
             bool IsBadVersion(int n)
             {
-                if (n < 1 || n > versions.Count()) return false;
+                if (n < 1 || n > versions.Length) return false;
                 return versions[n - 1];
             }
 
@@ -65,7 +65,7 @@
 
         public static int SearchInsert(int[] nums, int target)
         {
-            int left = 0, right = nums.Count() - 1;
+            int left = 0, right = nums.Length - 1;
             int index = left;
             while (left <= right)
             {
