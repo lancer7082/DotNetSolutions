@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "DotNetSolutions"
+		},
+		{
+			"path": "DotNetSolutionsTests"
+		}
+	],
+	"settings": {
+		"dotnet-test-explorer.testProjectPath": "**/DotNetSolutionsTests.csproj"
+	}
+}

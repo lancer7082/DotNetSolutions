@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSolutions", "DotNetSolutions\DotNetSolutions.csproj", "{36A1ABF1-82CA-4BD8-802C-DD988F68CC2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetSolutionsTests", "DotNetSolutionsTests\DotNetSolutionsTests.csproj", "{22E610AD-C4C9-472B-AEEA-DEAF31DF7C99}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{36A1ABF1-82CA-4BD8-802C-DD988F68CC2B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36A1ABF1-82CA-4BD8-802C-DD988F68CC2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36A1ABF1-82CA-4BD8-802C-DD988F68CC2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36A1ABF1-82CA-4BD8-802C-DD988F68CC2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22E610AD-C4C9-472B-AEEA-DEAF31DF7C99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22E610AD-C4C9-472B-AEEA-DEAF31DF7C99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22E610AD-C4C9-472B-AEEA-DEAF31DF7C99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22E610AD-C4C9-472B-AEEA-DEAF31DF7C99}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
