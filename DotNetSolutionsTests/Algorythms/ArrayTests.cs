@@ -9,7 +9,7 @@ namespace DotNetSolutionsTests.Algorythms
         {
             var testCase = new
             {
-                Nums = new int[] { 1, 2, 3, 1},
+                Nums = new int[] { 1, 2, 3, 1 },
                 Result = true
             };
 
@@ -27,7 +27,7 @@ namespace DotNetSolutionsTests.Algorythms
                 //Result = 6
                 Nums = new int[] { -2, -1, -3, -4, -1 },
                 Result = -1
-            };                
+            };
 
             var result = DotNetSolutions.DataStructures.ArrayProblem.MaxSubArray(testCase.Nums);
 
@@ -54,6 +54,25 @@ namespace DotNetSolutionsTests.Algorythms
         {
             DotNetSolutions.DataStructures.ArrayProblem.MergeSortedArray(nums1, m, nums2, n);
             Assert.Equal(expected, nums1);
+        }
+
+        [Theory]
+        [InlineData(new int[] { 1, 2, 2, 1 }, new int[] { 2, 2 }, new int[] { 2, 2 })]
+        [InlineData(new int[] { 4, 9, 5 }, new int[] { 9, 4, 9, 8, 4 }, new int[] { 4, 9 })]
+        public void IntersectTest(int[] nums1, int[] nums2, int[] output)
+        {
+            var result = DotNetSolutions.DataStructures.ArrayProblem.Intersect(nums1, nums2);
+            Assert.Equal(output, result);
+        }
+
+        [Theory]
+        [InlineData(new int[] { 7, 1, 5, 3, 6, 4 }, 5)]
+        [InlineData(new int[] { 7, 6, 4, 3, 1 }, 0)]
+        [InlineData(new int[] { 4, 6, 7, 8, 9, 1, 2, 6}, 5)]
+        public void MaxProfitTest(int[] prices, int profit)
+        {
+            var result = DotNetSolutions.DataStructures.ArrayProblem.MaxProfit(prices);
+            Assert.Equal(profit, result);
         }
     }
 }

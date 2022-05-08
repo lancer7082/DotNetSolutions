@@ -131,5 +131,84 @@
                 }
             }
         }
+
+        /// <summary>
+        /// Given two integer arrays nums1 and nums2, return an array of their intersection. 
+        /// Each element in the result must appear as many times as it shows in both arrays 
+        /// and you may return the result in any order.
+        /// </summary>
+        /// <param name="nums1"></param>
+        /// <param name="nums2"></param>
+        /// <returns></returns>
+        public static int[] Intersect(int[] nums1, int[] nums2)
+        {
+            var result = new List<int>(); 
+            
+            IDictionary<int, short> NumsToDictionary(int[] nums)
+            {
+                var dict = new Dictionary<int, short>();
+                foreach (var num in nums)
+                {
+                    if (dict.TryGetValue(num, out var val))
+                    {
+                        dict[num] = (short)(val + 1);
+                    }
+                    else
+                    {
+                        dict.Add(num, 1);
+                    }
+                }
+
+                return dict;
+            }
+
+            var dict1 = NumsToDictionary(nums1);
+            var dict2 = NumsToDictionary(nums2);
+
+            foreach(var item1 in dict1)
+            {
+                if (dict2.TryGetValue(item1.Key, out var val2))
+                {
+                    var val = Math.Min(item1.Value, val2);  
+                    for (var i = 0; i < val; i++)
+                    {
+                        result.Add(item1.Key);
+                    }
+                }
+            }
+
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// You are given an array prices where prices[i] is the price of a given stock on the ith day.
+        /// You want to maximize your profit by choosing a single day to buy one stock 
+        /// and choosing a different day in the future to sell that stock.
+        /// Return the maximum profit you can achieve from this transaction.
+        /// If you cannot achieve any profit, return 0.
+        /// </summary>
+        /// <param name="prices"></param>
+        /// <returns></returns>
+        public static int MaxProfit(int[] prices)
+        {
+            if (prices.Length == 0) return 0;
+
+            int maxprofit = 0;
+
+            int minprice = prices[0];
+            for (var i = 0; i < prices.Length; i++)
+            {
+                if (prices[i] < minprice)
+                {
+                    minprice = prices[i];
+                }
+                else 
+                { 
+                    maxprofit = Math.Max(maxprofit, prices[i] - minprice);
+                }
+            }
+
+            return maxprofit;
+        }
     }
 }
