@@ -1,4 +1,4 @@
-﻿namespace DotNetSolutions
+﻿namespace DotNetSolutions.Algorythms
 {
     public static class BinarySearch
     {

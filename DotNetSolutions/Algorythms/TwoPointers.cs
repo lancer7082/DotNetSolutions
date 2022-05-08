@@ -1,10 +1,8 @@
-using System;
-using System.Linq;
 using System.Text;
 
-namespace DotNetSolutions {
+namespace DotNetSolutions.Algorythms {
     public static class TwoPointers {
-        public static int[] TwoSum(int[] numbers, int target) {
+        public static int[] TwoSumSorted(int[] numbers, int target) {
             var count = numbers.Length;
             var result = new int[2] {-1, -1};
 

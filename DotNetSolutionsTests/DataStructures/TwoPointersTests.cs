@@ -1,27 +1,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-
-namespace DotNetSolutionsTests {
-
+namespace DotNetSolutionsTests.DataStructures
+{
     public class TwoPointersTests
     {
-        [Fact]
-        public void TwoSum2Test()
-        {
-            var testCase = new {
-                Nums = new int[] { 2, 7, 11, 15 },
-                Target = 9,
-                Result = new int[] { 1, 2 }
-            };
-            //{2,3,4};
-            //{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,1};
-            //{-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1, 1, 1};           
-            var result = DotNetSolutions.TwoPointers.TwoSum(testCase.Nums, testCase.Target);
-            Assert.Empty(result.ToList().Except(testCase.Result.ToList()));
-            //Console.WriteLine($"result = {string.Join(',', result.ToList())}");
-        }
-
         [Fact]
         public void ReverseStringTest()
         {
@@ -33,7 +16,7 @@ namespace DotNetSolutionsTests {
                 Output = new char[] { 'h', 'a', 'n', 'n', 'a', 'H' }
             };
             var input = testCase.Input;
-            DotNetSolutions.TwoPointers.ReverseString(input);
+            DotNetSolutions.Algorythms.TwoPointers.ReverseString(input);
 
             Assert.Equal(input, testCase.Output);
             //Assert.Empty(input.ToList().Except(testCase.Output.ToList()));
@@ -49,7 +32,7 @@ namespace DotNetSolutionsTests {
                 Input = "God Ding",
                 Output = "doG gniD"
             };
-            var result = DotNetSolutions.TwoPointers.ReverseWords(testCase.Input);
+            var result = DotNetSolutions.Algorythms.TwoPointers.ReverseWords(testCase.Input);
 
             Assert.Equal(result, testCase.Output);
         }

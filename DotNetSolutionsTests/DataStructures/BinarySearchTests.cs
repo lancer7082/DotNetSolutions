@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace DotNetSolutionsTests {
+namespace DotNetSolutionsTests.DataStructures {
 
     public class BinarySearchTests
     {
