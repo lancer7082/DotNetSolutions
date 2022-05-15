@@ -1,7 +1,7 @@
 using System.Text;
 
 namespace DotNetSolutions.Algorythms {
-    public static class TwoPointers {
+    public static class TwoPointersProblems {
         public static int[] TwoSumSorted(int[] numbers, int target) {
             var count = numbers.Length;
             var result = new int[2] {-1, -1};

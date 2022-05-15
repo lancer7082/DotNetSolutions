@@ -1,6 +1,6 @@
 ﻿namespace DotNetSolutions.Algorythms
 {
-    public static class BinarySearch
+    public static class BinarySearchProblems
     {
         public static int Search(int[] nums, int target)
         {

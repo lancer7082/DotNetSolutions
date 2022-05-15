@@ -1,6 +1,6 @@
 ﻿namespace DotNetSolutions.DataStructures
 {
-    public static class ArrayProblem
+    public static class ArrayProblems
     {
         public static bool ContainsDuplicate(int[] nums)
         {
@@ -209,6 +209,50 @@
             }
 
             return maxprofit;
+        }
+
+        /// <summary>
+        /// You are given an m x n matrix mat and two integers r and c representing the number of rows 
+        /// and the number of columns of the wanted reshaped matrix.
+        /// The reshaped matrix should be filled with all the elements of the original matrix 
+        /// in the same row-traversing order as they were.
+        /// If the reshape operation with given parameters is possible and legal, output the new reshaped matrix; 
+        /// Otherwise, output the original matrix.
+        /// </summary>
+        /// <param name="mat"></param>
+        /// <param name="r"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static int[][] MatrixReshape(int[][] mat, int r, int c)
+        {
+            var r_orig = mat.Length;
+            var c_orig = mat[0].Length;
+
+            if (r * c != r_orig * c_orig)
+            {
+                return mat;
+            }
+
+            int i = 0, j = 0;
+            var result = new int[r][];
+            result[0] = new int[c];
+            for(var i_orig = 0; i_orig < r_orig; i_orig++)
+            {
+                for (var j_orig = 0; j_orig < c_orig; j_orig++)
+                {
+                    result[i][j] = mat[i_orig][j_orig];
+                    j++;
+                    if (j >= c)
+                    {
+                        i++;
+                        if (i >= r) break;
+                        result[i] = new int[c];
+                        j = 0;
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }

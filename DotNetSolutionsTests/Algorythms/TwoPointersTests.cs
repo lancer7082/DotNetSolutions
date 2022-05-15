@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Xunit;
-namespace DotNetSolutionsTests.DataStructures
+namespace DotNetSolutionsTests.Algorythms
 {
     public class TwoPointersTests
     {
@@ -16,7 +16,7 @@ namespace DotNetSolutionsTests.DataStructures
                 Output = new char[] { 'h', 'a', 'n', 'n', 'a', 'H' }
             };
             var input = testCase.Input;
-            DotNetSolutions.Algorythms.TwoPointers.ReverseString(input);
+            DotNetSolutions.Algorythms.TwoPointersProblems.ReverseString(input);
 
             Assert.Equal(input, testCase.Output);
             //Assert.Empty(input.ToList().Except(testCase.Output.ToList()));
@@ -32,7 +32,7 @@ namespace DotNetSolutionsTests.DataStructures
                 Input = "God Ding",
                 Output = "doG gniD"
             };
-            var result = DotNetSolutions.Algorythms.TwoPointers.ReverseWords(testCase.Input);
+            var result = DotNetSolutions.Algorythms.TwoPointersProblems.ReverseWords(testCase.Input);
 
             Assert.Equal(result, testCase.Output);
         }
