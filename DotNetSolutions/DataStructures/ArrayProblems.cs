@@ -2,6 +2,11 @@
 {
     public static class ArrayProblems
     {
+        /// <summary>
+        /// 217. Contains Duplicate
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
         public static bool ContainsDuplicate(int[] nums)
         {
             var dict = new HashSet<int>();
@@ -19,6 +24,11 @@
             return false;
         }
 
+        /// <summary>
+        /// 53. Maximum Subarray
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <returns></returns>
         public static int MaxSubArray(int[] nums)
         {
             int max = nums[0];
@@ -34,6 +44,12 @@
             return max;
         }
 
+        /// <summary>
+        /// 1. Two Sum
+        /// </summary>
+        /// <param name="nums"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public static int[] TwoSum(int[] nums, int target)
         {
             int index1 = -1, index2 = -1;
@@ -72,6 +88,13 @@
             return new int[2] { index1, index2 };
         }
 
+        /// <summary>
+        /// 88. Merge Sorted Array
+        /// </summary>
+        /// <param name="nums1"></param>
+        /// <param name="m"></param>
+        /// <param name="nums2"></param>
+        /// <param name="n"></param>
         public static void MergeSortedArray(int[] nums1, int m, int[] nums2, int n)
         {
             if (n <= 0) return;
@@ -133,6 +156,7 @@
         }
 
         /// <summary>
+        /// 350. Intersection of Two Arrays II
         /// Given two integer arrays nums1 and nums2, return an array of their intersection. 
         /// Each element in the result must appear as many times as it shows in both arrays 
         /// and you may return the result in any order.
@@ -181,6 +205,7 @@
         }
 
         /// <summary>
+        /// 121. Best Time to Buy and Sell Stock
         /// You are given an array prices where prices[i] is the price of a given stock on the ith day.
         /// You want to maximize your profit by choosing a single day to buy one stock 
         /// and choosing a different day in the future to sell that stock.
@@ -212,6 +237,7 @@
         }
 
         /// <summary>
+        /// 566. Reshape the Matrix
         /// You are given an m x n matrix mat and two integers r and c representing the number of rows 
         /// and the number of columns of the wanted reshaped matrix.
         /// The reshaped matrix should be filled with all the elements of the original matrix 
@@ -253,6 +279,90 @@
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 118. Pascal's Triangle
+        /// Given an integer numRows, return the first numRows of Pascal's triangle.
+        /// </summary>
+        /// <param name="numRows"></param>
+        /// <returns></returns>
+        public static IList<IList<int>> PascalsTriangleGenerate(int numRows)
+        {
+            var result = new List<IList<int>>();
+
+            if (numRows == 0) return result;
+
+            IList<int> GenerateRow(int rowIndex, IList<int>? prevRow)
+            {
+                if (rowIndex == 0)
+                {
+                    // First row
+                    return new List<int> { 1 };
+                }
+
+                if (prevRow == null)
+                {
+                    throw new ArgumentNullException(nameof(prevRow));
+                }
+
+                var row = new List<int>();
+
+                for(var i = 0; i <= prevRow.Count; i++)
+                {
+                    var n1 = (i == 0) ? 0 : prevRow[i - 1];
+                    var n2 = (i == prevRow.Count) ? 0 : prevRow[i];
+                    row.Add(n1 + n2);
+                }
+
+                return row;
+            }
+
+            IList<int>? row = null;
+
+            for (var i = 0; i < numRows; i++)
+            {
+                row = GenerateRow(i, row);
+                result.Add(row);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// 36. Valid Sudoku
+        /// </summary>
+        /// <param name="board"></param>
+        /// <returns></returns>
+        public static bool IsValidSudoku(char[][] board)
+        {
+            bool CheckRows(char [][] board)
+            {
+                for(var i = 0; i < board.Length; i++)
+                {
+
+                }
+
+                return false;
+            }
+
+            bool CheckColumns(char[][] board)
+            {
+                return false;
+            }
+
+            bool CheckArea3x3(int left, int top, char[][] board)
+            {
+                return false;
+            }
+
+            if (!CheckRows(board)) return false;
+
+            if (!CheckColumns(board)) return false;
+
+            if (!CheckArea3x3(0, 0, board)) return false;
+
+            return true;
         }
     }
 }

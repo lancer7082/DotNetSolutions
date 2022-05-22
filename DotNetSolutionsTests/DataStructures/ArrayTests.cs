@@ -101,5 +101,54 @@ namespace DotNetSolutionsTests.DataStructures
             var output = DotNetSolutions.DataStructures.ArrayProblems.MatrixReshape(input, 2, 3);
             Assert.Equal(expectedOutput, output);
         }
+
+        [Fact]
+        public void PascalsTriangleGenerateTest1()
+        {
+            var numRows = 5;
+            var expectedOutput = new int[][] { 
+                new int[] { 1 }, 
+                new int[] { 1,1 },
+                new int[] { 1,2,1 },
+                new int[] { 1,3,3,1 },
+                new int[] { 1,4,6,4,1 }
+            };
+
+            var output = DotNetSolutions.DataStructures.ArrayProblems.PascalsTriangleGenerate(numRows);
+            Assert.Equal(expectedOutput, output);
+        }
+
+        [Fact]
+        public void PascalsTriangleGenerateTest2()
+        {
+            var numRows = 1;
+            var expectedOutput = new int[][] {
+                new int[] { 1 }
+            };
+
+            var output = DotNetSolutions.DataStructures.ArrayProblems.PascalsTriangleGenerate(numRows);
+            Assert.Equal(expectedOutput, output);
+        }
+
+        [Fact]
+        public void IsValidSudokuTest()
+        {
+            var input = new char[][] {
+                new char[] {'5', '3', '.', '.', '7', '.', '.', '.', '.'},
+                new char[] {'6', '.', '.', '1', '9', '5', '.', '.', '.'},
+                new char[] {'.', '9', '8', '.', '.', '.', '.', '6', '.'},
+                new char[] {'8', '.', '.', '.', '6', '.', '.', '.', '3'},
+                new char[] {'4', '.', '.', '8', '.', '3', '.', '.', '1'},
+                new char[] {'7', '.', '.', '.', '2', '.', '.', '.', '6'},
+                new char[] {'.', '6', '.', '.', '.', '.', '2', '8', '.'},
+                new char[] {'.', '.', '.', '4', '1', '9', '.', '.', '5'},
+                new char[] {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
+            };
+
+            var expectedResult = true;
+
+            var result = DotNetSolutions.DataStructures.ArrayProblems.IsValidSudoku(input);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }
