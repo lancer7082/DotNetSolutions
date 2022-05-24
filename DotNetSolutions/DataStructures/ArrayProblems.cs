@@ -336,31 +336,32 @@
         /// <returns></returns>
         public static bool IsValidSudoku(char[][] board)
         {
-            bool CheckRows(char [][] board)
+            var size = board.Length;
+
+            var rows = new HashSet<string>();
+            var columns = new HashSet<string>();
+            var area = new HashSet<string>();
+
+            for (var i = 0; i < size; i++)
             {
-                for(var i = 0; i < board.Length; i++)
+                for (var j = 0; j < size; j++)
                 {
+                    if (board[i][j] != '.')
+                    {
+                        var rowKey = "r" + Convert.ToChar(0x31 + i) + board[i][j];
+                        if (rows.Contains(rowKey)) return false;
+                        rows.Add(rowKey);
 
+                        var colKey = "c" + Convert.ToChar(0x31 + j) + board[i][j];
+                        if (columns.Contains(colKey)) return false;
+                        columns.Add(colKey);
+                        
+                        var areaKey = "a" + Convert.ToChar(0x31 + i / 3) + Convert.ToChar(0x31 + j / 3) + board[i][j];
+                        if (area.Contains(areaKey)) return false;
+                        area.Add(areaKey);
+                    }
                 }
-
-                return false;
             }
-
-            bool CheckColumns(char[][] board)
-            {
-                return false;
-            }
-
-            bool CheckArea3x3(int left, int top, char[][] board)
-            {
-                return false;
-            }
-
-            if (!CheckRows(board)) return false;
-
-            if (!CheckColumns(board)) return false;
-
-            if (!CheckArea3x3(0, 0, board)) return false;
 
             return true;
         }
