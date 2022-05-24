@@ -365,5 +365,21 @@
 
             return true;
         }
+
+        /// <summary>
+        /// 74. Search a 2D Matrix
+        /// </summary>
+        /// <param name="matrix"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
+        public static bool SearchMatrix(int[][] matrix, int target)
+        {
+            var m = matrix.Length;
+            var n = matrix[0].Length;
+            var size = m*n;
+
+
+            return false;
+        }
     }
 }
