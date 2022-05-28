@@ -106,8 +106,8 @@ namespace DotNetSolutionsTests.DataStructures
         public void PascalsTriangleGenerateTest1()
         {
             var numRows = 5;
-            var expectedOutput = new int[][] { 
-                new int[] { 1 }, 
+            var expectedOutput = new int[][] {
+                new int[] { 1 },
                 new int[] { 1,1 },
                 new int[] { 1,2,1 },
                 new int[] { 1,3,3,1 },
@@ -169,6 +169,23 @@ namespace DotNetSolutionsTests.DataStructures
             var expectedResult = false;
 
             var result = DotNetSolutions.DataStructures.ArrayProblems.IsValidSudoku(input);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void SearchMatrixTest()
+        {
+            var input = new int[][] {
+                new int [] {1, 3, 5, 7 },
+                new int [] {10, 11, 16, 20 },
+                new int [] {23, 30, 34, 60 }
+            };
+
+            var target = 13;
+
+            var expectedResult = true;
+
+            var result = DotNetSolutions.DataStructures.ArrayProblems.SearchMatrix(input, target);
             Assert.Equal(expectedResult, result);
         }
     }

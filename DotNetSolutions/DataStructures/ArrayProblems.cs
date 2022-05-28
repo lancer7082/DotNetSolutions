@@ -376,8 +376,71 @@
         {
             var m = matrix.Length;
             var n = matrix[0].Length;
-            var size = m*n;
 
+            // Search row
+            var start = 0;
+            var end = m - 1;
+            var i = (end - start) / 2;
+            while (true)
+            {
+                if (matrix[i][n - 1] == target || matrix[i][0] == target)
+                { 
+                    // Found target
+                    return true;
+                }
+                
+                if (target > matrix[i][0] && target < matrix[i][n - 1])
+                {
+                    // Found row
+                    break;
+                }
+                else if (target > matrix[i][n - 1]) 
+                {
+                    if (i == m - 1) return false; // Target not found
+                    if (target < matrix[i + 1][0]) return false;
+
+                    // Search forward
+                    start = i + 1;
+                    i = start + (end - start) / 2;
+                }
+                else if (target < matrix[i][0])
+                {
+                    if (i == 0) return false;
+                    if (target > matrix[i - 1][n - 1]) return false;
+                    
+                    // Search back
+                    end = i - 1;
+                    i = start + (end - start) / 2;
+                }
+            }
+
+            // Search target
+            start = 0;
+            end = n - 1;
+            var j = (end - start) / 2;
+            while (j > 0 && j < n)
+            {
+                if (matrix[i][j] == target)
+                {
+                    // Found target
+                    return true;
+                }
+
+                if (start > end) return false;
+
+                if (target < matrix[i][j])
+                {
+                    // Search back
+                    end = j - 1;
+                    j = start + (end - start) / 2;
+                }
+                else
+                {
+                    // Search forward
+                    start = j + 1;
+                    j = start + (end - start) / 2;
+                }
+            }
 
             return false;
         }
