@@ -8,12 +8,6 @@ namespace DotNetSolutions.DataStructures
 {
     public static class StringProblems
     {
-        struct CharStat
-        {
-            int firstPos;
-            int count;
-        };
-
         /// <summary>
         /// 387. First Unique Character in a String
         /// Given a string s, find the first non-repeating character in it and return its index. 
@@ -43,6 +37,49 @@ namespace DotNetSolutions.DataStructures
                 }
             }
             return -1;
+        }
+
+        /// <summary>
+        /// 383. Ransom Note
+        /// Given two strings ransomNote and magazine, return true if ransomNote can be constructed 
+        /// from magazine and false otherwise.
+        /// Each letter in magazine can only be used once in ransomNote.
+        /// </summary>
+        /// <param name="ransomNote"></param>
+        /// <param name="magazine"></param>
+        /// <returns></returns>
+        public static bool CanConstruct(string ransomNote, string magazine)
+        {
+            var dict = new Dictionary<char, int>();
+            foreach(var c in magazine)
+            {
+                if (dict.ContainsKey(c))
+                {
+                    dict[c]++;
+                }
+                else
+                {
+                    dict.Add(c, 1);
+                }
+            }
+
+            foreach(var c in ransomNote)
+            {
+                if (dict.TryGetValue(c, out var value))
+                {
+                    if (value == 0)
+                    {
+                        return false;
+                    }
+                    dict[c]--;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
     }
 }
