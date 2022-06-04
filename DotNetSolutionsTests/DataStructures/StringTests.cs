@@ -22,5 +22,14 @@ namespace DotNetSolutionsTests.DataStructures
             var result = DotNetSolutions.DataStructures.StringProblems.CanConstruct(ransomNote, magazine);
             Assert.Equal(expectedResult, result);
         }
+
+        [Theory]
+        [InlineData("anagram", "nagaram", true)]
+        [InlineData("rat", "car", false)]
+        void IsAnagramTest(string s, string t, bool expectedResult)
+        {
+            var result = DotNetSolutions.DataStructures.StringProblems.IsAnagram(s, t);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

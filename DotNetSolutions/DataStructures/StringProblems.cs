@@ -81,5 +81,38 @@ namespace DotNetSolutions.DataStructures
 
             return true;
         }
+
+
+        /// <summary>
+        /// 242. Valid Anagram
+        /// Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+        /// </summary>
+        /// <param name="s"></param>
+        /// <param name="t"></param>
+        /// <returns></returns>
+        public static bool IsAnagram(string s, string t)
+        {
+            var dict = new byte[26];
+            
+            foreach(var c in s)
+            {
+                dict[c-'a']++;
+            }
+
+            foreach(var c in t)
+            {
+                dict[c-'a']--;
+            }
+
+            foreach(var n in dict)
+            {
+                if (n != 0)
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
     }
 }
