@@ -44,5 +44,75 @@ namespace DotNetSolutionsTests.DataStructures
 
             Assert.False(result);
         }
+
+        [Fact]
+        public void MergeTwoLists1()
+        {
+            // list1
+            var n8 = new ListNode(8);
+            var n7 = new ListNode(7, n8);
+            var n3 = new ListNode(3, n7);
+            var n2 = new ListNode(2, n3);
+            var n1 = new ListNode(1, n2);
+
+            // list1
+            var n10 = new ListNode(10);
+            var n9 = new ListNode(9, n10);
+            var n6 = new ListNode(6, n9);
+            var n5 = new ListNode(5, n6);
+            var n4 = new ListNode(4, n5);
+
+            var result = LinkedListProblems.MergeTwoLists(n1, n4);
+
+            Assert.NotNull(result);
+
+            var expected = "1,2,3,4,5,6,7,8,9,10";
+
+            var actual = "";
+            while (result != null)
+            {
+                actual += result.val.ToString();
+                if (result.next != null)
+                {
+                    actual += ",";
+                }
+                result = result.next;
+            }
+
+            Assert.Equal(expected, actual);
+        }
+
+        [Fact]
+        public void MergeTwoLists2()
+        {
+            // list1
+            var n1_4 = new ListNode(4);
+            var n1_2 = new ListNode(2, n1_4);
+            var n1_1 = new ListNode(1, n1_2);
+
+            // list1
+            var n2_4 = new ListNode(4);
+            var n2_3 = new ListNode(3, n2_4);
+            var n2_1 = new ListNode(1, n2_3);
+
+            var result = LinkedListProblems.MergeTwoLists(n1_1, n2_1);
+
+            Assert.NotNull(result);
+
+            var expected = "1,1,2,3,4";
+
+            var actual = "";
+            while (result != null)
+            {
+                actual += result.val.ToString();
+                if (result.next != null)
+                {
+                    actual += ",";
+                }
+                result = result.next;
+            }
+
+            Assert.Equal(expected, actual);
+        }
     }
 }
