@@ -1,15 +1,5 @@
 ﻿namespace DotNetSolutions.DataStructures
 {
-    // Definition for singly-linked list.
-    public class ListNode {
-        public int val;
-        public ListNode? next;
-        public ListNode(int val=0, ListNode? next = null) {
-            this.val = val;
-            this.next = next;
-        }
-    }
-
     public static class LinkedListProblems
     {
         /// <summary>
@@ -105,6 +95,53 @@
             }
 
             return result;
+        }
+
+        /// <summary>
+        /// 203. Remove Linked List Elements
+        /// Given the head of a linked list and an integer val, remove all the nodes 
+        /// of the linked list that has Node.val == val, and return the new head.
+        /// </summary>
+        /// <param name="head"></param>
+        /// <param name="val"></param>
+        /// <returns></returns>
+        public static ListNode? RemoveElements(ListNode head, int val)
+        {
+            if (head == null) return null;                 
+            ListNode? prev = null, n = head;
+            while (n != null)
+            {
+                if (n.val == val)
+                {
+                    // Remove item
+                    if (prev == null)
+                    {
+                        if (n.next == null)
+                        {
+                            return null;
+                        }
+                        head = n.next;
+                        n = head;
+                        continue;
+                    }
+                    else
+                    {
+                        if (n.next == null)
+                        {
+                            prev.next = null;
+                            break;
+                        }
+                        prev.next = n.next;
+                        n = n.next;
+                        continue;
+                    }
+                }
+
+                prev = n;
+                n = n.next;     
+            }
+
+            return head;
         }
     }
 }

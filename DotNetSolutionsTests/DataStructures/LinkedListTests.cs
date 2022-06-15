@@ -1,4 +1,6 @@
 ﻿using DotNetSolutions.DataStructures;
+using System;
+using System.Collections.Generic;
 using Xunit;
 
 namespace DotNetSolutionsTests.DataStructures
@@ -46,7 +48,7 @@ namespace DotNetSolutionsTests.DataStructures
         }
 
         [Fact]
-        public void MergeTwoLists1()
+        public void MergeTwoListsTest1()
         {
             // list1
             var n8 = new ListNode(8);
@@ -83,7 +85,7 @@ namespace DotNetSolutionsTests.DataStructures
         }
 
         [Fact]
-        public void MergeTwoLists2()
+        public void MergeTwoListsTest2()
         {
             // list1
             var n1_4 = new ListNode(4);
@@ -113,6 +115,33 @@ namespace DotNetSolutionsTests.DataStructures
             }
 
             Assert.Equal(expected, actual);
+        }
+    
+        [Theory]
+        [InlineData(new int[] { 1, 2, 6, 3, 4, 5, 6 }, 6, new int[] { 1, 2, 3, 4, 5 })]
+        [InlineData(new int[] { 7,7,7,7 }, 7, new int[] {})]
+        [InlineData(new int[] {}, 1, new int[] { })]
+        [InlineData(new int[] { 1, 2, 2, 1}, 2, new int[] { 1, 1 })]
+        public void RemoveElementsTest(int[] input, int val, int[] expectedOutput)
+        {
+            ListNode? head = null;
+            if (input.Length > 0)
+            {
+                head = new ListNode(input);
+            }
+
+            //if (head == null)
+            //{
+            //    throw new ArgumentNullException(nameof(head));
+            //}
+
+            var result = LinkedListProblems.RemoveElements(head, val);
+
+            int[] resultArray;
+            if (result != null) resultArray = result.ToArray();
+            else resultArray = new int[] { };
+
+            Assert.Equal(expectedOutput, resultArray);
         }
     }
 }
