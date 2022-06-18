@@ -170,5 +170,53 @@
             head.next = null;
             return newHead;
         }
+
+        /// <summary>
+        /// 83. Remove Duplicates from Sorted List
+        /// Given the head of a sorted linked list, delete all duplicates such 
+        /// that each element appears only once. 
+        /// Return the linked list sorted as well.
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public static ListNode DeleteDuplicates(ListNode head)
+        {
+            if (head == null) return null;
+
+            var set = new HashSet<int>();
+
+            ListNode? prev = null, node = head;
+            while (node != null)
+            {
+                if (set.Contains(node.val))
+                {
+                    // Remove item
+                    if (node.next == null)
+                    {
+                        if (prev == null) return null;
+                        prev.next = null;
+                        break;
+                    }
+                    else if (prev == null)
+                    {
+                        var tmp = node;
+                        node = node.next;
+                        tmp.next = null;
+                    }
+                    else
+                    {
+                        prev.next = node.next;
+                        node = node.next;
+                    }
+                }
+                else
+                {
+                    set.Add(node.val);
+                    prev = node;
+                    node = node.next;
+                }
+            }
+            return head;
+        }
     }
 }

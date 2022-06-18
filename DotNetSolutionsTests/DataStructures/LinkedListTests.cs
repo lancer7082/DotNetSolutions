@@ -158,5 +158,26 @@ namespace DotNetSolutionsTests.DataStructures
 
             Assert.Equal(expectedOutput, resultArray);
         }
+
+        [Theory]
+        [InlineData(new int[] { 1, 1, 2, 3, 3 }, new int[] { 1, 2, 3 })]
+        [InlineData(new int[] { 1, 1, 2}, new int[] { 1, 2})]
+        [InlineData(new int[] { }, new int[] { })]
+        public void DeleteDuplicatesTest(int[] input, int[] expectedOutput)
+        {
+            ListNode? head = null;
+            if (input.Length > 0)
+            {
+                head = new ListNode(input);
+            }
+
+            var result = LinkedListProblems.DeleteDuplicates(head);
+
+            int[] resultArray;
+            if (result != null) resultArray = result.ToArray();
+            else resultArray = new int[] { };
+
+            Assert.Equal(expectedOutput, resultArray);
+        }
     }
 }
