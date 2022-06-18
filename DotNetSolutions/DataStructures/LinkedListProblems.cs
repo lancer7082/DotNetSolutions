@@ -143,5 +143,32 @@
 
             return head;
         }
+
+        /// <summary>
+        /// 206. Reverse Linked List
+        /// Given the head of a singly linked list, reverse the list, and return the reversed list.
+        /// </summary>
+        /// <param name="head"></param>
+        /// <returns></returns>
+        public static ListNode ReverseList(ListNode head)
+        {
+            if (head == null) return null;
+
+            ListNode ReverseNode(ListNode node)
+            {
+                if (node.next == null)
+                {
+                    return node;
+                }
+                var tmp = node.next;
+                var tail = ReverseNode(tmp);
+                tmp.next = node;
+                return tail;
+            }
+            
+            var newHead = ReverseNode(head);
+            head.next = null;
+            return newHead;
+        }
     }
 }

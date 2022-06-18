@@ -128,14 +128,29 @@ namespace DotNetSolutionsTests.DataStructures
             if (input.Length > 0)
             {
                 head = new ListNode(input);
-            }
-
-            //if (head == null)
-            //{
-            //    throw new ArgumentNullException(nameof(head));
-            //}
+            }    
 
             var result = LinkedListProblems.RemoveElements(head, val);
+
+            int[] resultArray;
+            if (result != null) resultArray = result.ToArray();
+            else resultArray = new int[] { };
+
+            Assert.Equal(expectedOutput, resultArray);
+        }
+
+        [Theory]
+        [InlineData(new int[] { 1, 2, 3, 4, 5 }, new int[] { 5, 4, 3, 2, 1 })]
+        [InlineData(new int[] { }, new int[] { })]
+        public void ReverseListTest(int[] input, int[] expectedOutput)
+        {
+            ListNode? head = null;
+            if (input.Length > 0)
+            {
+                head = new ListNode(input);
+            }
+
+            var result = LinkedListProblems.ReverseList(head);
 
             int[] resultArray;
             if (result != null) resultArray = result.ToArray();
