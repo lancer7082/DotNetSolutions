@@ -21,5 +21,17 @@ namespace DotNetSolutionsTests.DataStructures
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        void MyQueueTest1()
+        {
+            var q = new MyQueue();
+            q.Push(1);
+            q.Push(2);
+            Assert.Equal(1, q.Peek());
+            Assert.Equal(1, q.Pop());
+            Assert.Equal(2, q.Peek());
+            Assert.False(q.Empty());
+        }
     }
 }
