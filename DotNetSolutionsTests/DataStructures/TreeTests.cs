@@ -47,5 +47,47 @@ namespace DotNetSolutionsTests.DataStructures
 
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void LevelOrderTraversalTest1()
+        {
+            var n15 = new TreeNode(15);
+            var n7 = new TreeNode(7);
+            var n20 = new TreeNode(20, n15, n7);
+            var n9 = new TreeNode(9);
+            var n3 = new TreeNode(3, n9, n20);
+
+            var expectedResult = new List<IList<int>> { 
+                new List<int> { 3 },
+                new List<int> { 9, 20 },
+                new List<int> { 15, 7 }
+            };
+
+            var result = TreeProblems.LevelOrderTraversal(n3);
+
+            Assert.NotNull(result);
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
+        public void LevelOrderTraversalTest2()
+        {
+            var n4 = new TreeNode(4);
+            var n5 = new TreeNode(5);
+            var n2 = new TreeNode(2, n4, null);
+            var n3 = new TreeNode(3, null, n5);
+            var n1 = new TreeNode(1, n2, n3);
+
+            var expectedResult = new List<IList<int>> {
+                new List<int> { 1 },
+                new List<int> { 2, 3 },
+                new List<int> { 4, 5 },
+            };
+
+            var result = TreeProblems.LevelOrderTraversal(n1);
+
+            Assert.NotNull(result);
+            Assert.Equal(expectedResult, result);
+        }
     }
 }

@@ -67,5 +67,33 @@
 
             return list;
         }
+
+        /// <summary>
+        /// 102. Binary Tree Level Order Traversal
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static IList<IList<int>> LevelOrderTraversal(TreeNode root)
+        {
+            var result = new List<IList<int>>();
+
+            if (root == null) return result;
+
+            void LevelOrderTraversalRecursive(TreeNode? root, int level)
+            {
+                if (root == null) return;
+                if (result.Count < level + 1) result.Add(new List<int>());
+                result[level].Add(root.val);
+                if (root.left != null || root.right != null)
+                {
+                    LevelOrderTraversalRecursive(root.left, level + 1);
+                    LevelOrderTraversalRecursive(root.right, level + 1);
+                }
+            }
+
+            LevelOrderTraversalRecursive(root, 0);
+
+            return result;
+        }
     }
 }
