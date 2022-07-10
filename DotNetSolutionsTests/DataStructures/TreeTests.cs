@@ -89,5 +89,29 @@ namespace DotNetSolutionsTests.DataStructures
             Assert.NotNull(result);
             Assert.Equal(expectedResult, result);
         }
+
+        [Fact]
+        public void MaxDepthTest1()
+        {
+
+            var list = new int?[] { 3, 9, 20, null, null, 15, 7 };
+            var root = new TreeNode(list);
+
+            var maxDepth = TreeProblems.MaxDepth(root);
+
+            Assert.Equal(3, maxDepth);
+        }
+
+        [Fact]
+        public void MaxDepthTest2()
+        {
+
+            var list = new int?[] { 1, null, 2 };
+            var root = new TreeNode(list);
+
+            var maxDepth = TreeProblems.MaxDepth(root);
+
+            Assert.Equal(2, maxDepth);
+        }
     }
 }

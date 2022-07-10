@@ -3,7 +3,8 @@
     public static class TreeProblems
     {
         /// <summary>
-        /// 94. Binary Tree Inorder Traversal
+        /// 94. Binary Tree Inorder Traversal.
+        /// left - root - right.
         /// </summary>
         /// <param name="root"></param>
         /// <returns></returns>
@@ -26,6 +27,7 @@
 
         /// <summary>
         /// 145. Binary Tree Postorder Traversal
+        /// left - right - root.
         /// </summary>
         /// <param name="root"></param>
         /// <returns></returns>
@@ -48,6 +50,7 @@
 
         /// <summary>
         /// 144. Binary Tree Preorder Traversal
+        /// root - left - right
         /// </summary>
         /// <param name="root"></param>
         /// <returns></returns>
@@ -94,6 +97,41 @@
             LevelOrderTraversalRecursive(root, 0);
 
             return result;
+        }
+
+        /// <summary>
+        /// 104. Maximum Depth of Binary Tree.
+        /// Given the root of a binary tree, return its maximum depth.
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
+        public static int MaxDepth(TreeNode root)
+        {
+            var maxDepth = 0;
+
+            void Traverse(TreeNode node, int level)
+            {
+                if (node == null) return;
+
+                if (level > maxDepth)
+                {
+                    maxDepth = level;
+                }
+
+                if (node.left != null)
+                {
+                    Traverse(node.left, level + 1);
+                }
+
+                if (node.right != null)
+                {
+                    Traverse(node.right, level + 1);
+                }
+            }
+
+            Traverse(root, 1);
+            
+            return maxDepth;
         }
     }
 }
